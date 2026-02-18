@@ -1,101 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Axaray | Premium Airport Transfers in Antalya</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Premium airport transfers in Antalya. Private VIP vehicles, fixed prices, 24/7 service. Book online with secure deposit.">
+  <meta charset="UTF-8" />
+  <title>Axaray | Antalya VIP Transfer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Antalya VIP transfer. Sabit fiyat, güvenli kapora ödemesi, 7/24 destek. Havalimanı transferini dakikalar içinde ayarla." />
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0E0E0E;
-      color: #ffffff;
-      text-align: center;
+    :root{
+      --bg:#0E0E0E; --panel:#141414; --panel2:#1b1b1b;
+      --gold:#C6A85B; --text:#fff; --muted:#B9B9B9; --line:#2a2a2a;
     }
-    header {
-      padding: 60px 20px;
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto;background:var(--bg);color:var(--text)}
+    .wrap{max-width:980px;margin:0 auto;padding:26px}
+    .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .brand{letter-spacing:6px;color:var(--gold);font-weight:700}
+    .pill{border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:13px}
+    .hero{padding:28px 0 12px}
+    h1{margin:12px 0 8px;font-size:34px}
+    .sub{color:var(--muted);max-width:720px;line-height:1.5}
+    .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;margin-top:18px}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+    .card h2{margin:0 0 12px;font-size:18px}
+    label{display:block;margin:10px 0 6px;color:var(--muted);font-size:13px}
+    input,select,textarea{
+      width:100%;padding:12px 12px;border-radius:10px;border:1px solid var(--line);
+      background:var(--panel2);color:var(--text);outline:none
     }
-    h1 {
-      color: #C6A85B;
-      font-size: 42px;
-      letter-spacing: 6px;
+    textarea{min-height:88px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media(max-width:520px){.row{grid-template-columns:1fr}}
+    .priceBox{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);margin-top:14px;padding-top:14px;gap:10px;flex-wrap:wrap}
+    .price{font-size:22px;color:var(--gold);font-weight:700}
+    .btn{
+      width:100%;padding:12px 14px;border-radius:12px;border:0;cursor:pointer;font-weight:700
     }
-    h2 {
-      font-weight: normal;
-      margin-top: 10px;
-      color: #ccc;
-    }
-    .section {
-      padding: 50px 20px;
-    }
-    .card {
-      background: #1a1a1a;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 400px;
-      border-radius: 8px;
-    }
-    .price {
-      font-size: 24px;
-      color: #C6A85B;
-      margin-top: 10px;
-    }
-    button {
-      background: #C6A85B;
-      color: #000;
-      border: none;
-      padding: 12px 25px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 15px;
-      border-radius: 4px;
-    }
-    footer {
-      padding: 40px 20px;
-      font-size: 14px;
-      color: #777;
-    }
+    .btnGold{background:var(--gold);color:#000}
+    .btnGhost{background:transparent;color:var(--text);border:1px solid var(--line)}
+    .note{font-size:12px;color:var(--muted);line-height:1.4;margin-top:10px}
+    .ok{color:#7CFFB2}
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">AXARAY</div>
+      <div class="pill">Antalya • VIP Airport Transfers</div>
+    </div>
 
-<header>
-  <h1>AXARAY</h1>
-  <h2>Premium Airport Transfers in Antalya</h2>
-</header>
+    <div class="hero">
+      <h1>Antalya VIP Transfer</h1>
+      <div class="sub">
+        Sabit fiyat • Güvenli <b>kapora</b> • 7/24 destek. <br/>
+        Kaporayı öde, detayları WhatsApp’tan onaylayalım.
+      </div>
+    </div>
 
-<section class="section">
-  <div class="card">
-    <h3>Antalya Airport → Konyaaltı</h3>
-    <div class="price">1,450 TL</div>
-    <button onclick="alert('Booking coming soon')">Book Now</button>
+    <div class="grid">
+      <!-- Form -->
+      <div class="card">
+        <h2>Rezervasyon Bilgileri</h2>
+
+        <label>Rota</label>
+        <select id="route">
+          <option value="konyaalti" selected>AYT → Konyaaltı (1.450 TL)</option>
+          <option value="lara">AYT → Lara (1.350 TL)</option>
+          <option value="belek">AYT → Belek (1.650 TL)</option>
+        </select>
+
+        <div class="row">
+          <div>
+            <label>Tarih & Saat</label>
+            <input id="dt" type="datetime-local" />
+          </div>
+          <div>
+            <label>Yolcu Sayısı</label>
+            <select id="pax">
+              <option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Ad Soyad</label>
+            <input id="name" placeholder="Örn. John Smith" />
+          </div>
+          <div>
+            <label>Telefon (WhatsApp)</label>
+            <input id="phone" placeholder="Örn. +90 5xx xxx xx xx" />
+          </div>
+        </div>
+
+        <label>Not (uçuş no, bagaj, çocuk koltuğu vb.)</label>
+        <textarea id="notes" placeholder="Örn. Flight: TK2410 / 2 bagaj / çocuk koltuğu"></textarea>
+
+        <div class="priceBox">
+          <div>
+            <div style="color:var(--muted);font-size:13px">Online Kapora</div>
+            <div class="price" id="deposit">300 TL</div>
+          </div>
+          <div style="text-align:right">
+            <div style="color:var(--muted);font-size:13px">Kalan Ödeme</div>
+            <div class="price" id="remaining">1.150 TL</div>
+          </div>
+        </div>
+
+        <button class="btn btnGold" onclick="payDeposit()">Kapora Öde (Güvenli)</button>
+        <button class="btn btnGhost" style="margin-top:10px" onclick="whatsappConfirm()">WhatsApp ile Onayla</button>
+
+        <div class="note">
+          Kapora ödendikten sonra WhatsApp ile detayları onaylıyoruz. Araç/şoför bilgisi paylaşılır.
+          İptal/iade koşulları: operasyon doğrulamasına göre uygulanır.
+        </div>
+
+        <div class="note ok" id="saved" style="display:none;">Bilgiler kaydedildi ✔</div>
+      </div>
+
+      <!-- Trust -->
+      <div class="card">
+        <h2>Neden Axaray?</h2>
+        <div class="note" style="font-size:14px;color:#fff;line-height:1.7">
+          ✔ Sabit fiyat, sürpriz yok<br/>
+          ✔ VIP araçlar (Vito/Trafic sınıfı)<br/>
+          ✔ 7/24 destek<br/>
+          ✔ Lisanslı sürücüler (belge kontrolü)<br/><br/>
+          <span style="color:var(--muted)">Hedefimiz: Antalya’da premium ve sorunsuz transfer standardı.</span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>Antalya Airport → Lara</h3>
-    <div class="price">1,350 TL</div>
-    <button onclick="alert('Booking coming soon')">Book Now</button>
-  </div>
+<script>
+  // PAYTR/Craftgate/iyzico payment links (kapora)
+  const PAY_LINKS = {
+    konyaalti: "PAY_LINK_KONYAALTI_300TL",
+    lara:      "PAY_LINK_LARA_300TL",
+    belek:     "PAY_LINK_BELEK_300TL"
+  };
 
-  <div class="card">
-    <h3>Antalya Airport → Belek</h3>
-    <div class="price">1,650 TL</div>
-    <button onclick="alert('Booking coming soon')">Book Now</button>
-  </div>
-</section>
+  const TOTALS = { konyaalti:1450, lara:1350, belek:1650 };
+  const DEPOSIT = 300;
 
-<section class="section">
-  <h2>Why Axaray?</h2>
-  <p>✔ Fixed Prices</p>
-  <p>✔ VIP Vehicles</p>
-  <p>✔ 24/7 Support</p>
-  <p>✔ Secure Online Deposit</p>
-</section>
+  function updatePrice(){
+    const r = document.getElementById("route").value;
+    document.getElementById("deposit").textContent = DEPOSIT.toLocaleString("tr-TR")+" TL";
+    document.getElementById("remaining").textContent = (TOTALS[r]-DEPOSIT).toLocaleString("tr-TR")+" TL";
+  }
+  document.getElementById("route").addEventListener("change", updatePrice);
+  updatePrice();
 
-<footer>
-  © 2026 Axaray. All rights reserved.
-</footer>
+  function getData(){
+    return {
+      route: document.getElementById("route").value,
+      dt: document.getElementById("dt").value,
+      pax: document.getElementById("pax").value,
+      name: document.getElementById("name").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      notes: document.getElementById("notes").value.trim()
+    };
+  }
 
+  function saveData(){
+    const d = getData();
+    localStorage.setItem("axaray_booking", JSON.stringify(d));
+    document.getElementById("saved").style.display = "block";
+    setTimeout(()=>document.getElementById("saved").style.display="none", 2000);
+  }
+
+  function payDeposit(){
+    const d = getData();
+    if(!d.name || !d.phone || !d.dt){
+      alert("Lütfen Ad Soyad, Telefon ve Tarih/Saat alanlarını doldurun.");
+      return;
+    }
+    saveData();
+    const link = PAY_LINKS[d.route];
+    if(!link || link.startsWith("PAY_LINK_")){
+      alert("Ödeme linki henüz eklenmedi. PayTR linklerini gönder, bağlayayım.");
+      return;
+    }
+    window.open(link, "_blank");
+  }
+
+  function whatsappConfirm(){
+    const d = getData();
+    if(!d.name || !d.phone || !d.dt){
+      alert("Lütfen Ad Soyad, Telefon ve Tarih/Saat alanlarını doldurun.");
+      return;
+    }
+    saveData();
+    const routeLabel = {
+      konyaalti: "AYT → Konyaaltı",
+      lara: "AYT → Lara",
+      belek: "AYT → Belek"
+    }[d.route];
+
+    const total = TOTALS[d.route];
+    const msg =
+`Merhaba, Axaray rezervasyon talebim var.
+Rota: ${routeLabel}
+Tarih/Saat: ${d.dt}
+Yolcu: ${d.pax}
+Ad: ${d.name}
+Telefon: ${d.phone}
+Toplam: ${total} TL (Kapora: ${DEPOSIT} TL)
+
+Not: ${d.notes || "-"}
+(Ödemeyi yaptıysanız dekont/ödeme bilgisiyle teyit edebilir misiniz?)`;
+
+    // WhatsApp number: senin numaranı buraya yaz (başında ülke kodu)
+    const YOUR_WA = "905524011489"; // örnek: 90 ile başla, + koyma
+    const url = "https://wa.me/" + YOUR_WA + "?text=" + encodeURIComponent(msg);
+    window.open(url, "_blank");
+  }
+</script>
 </body>
 </html>
